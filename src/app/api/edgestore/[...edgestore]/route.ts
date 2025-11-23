@@ -23,7 +23,7 @@ const edgeStoreRouter = es.router({
 
       maxSize: 10 * 1024 * 1024,
     })
-    .beforeDelete(({ ctx, fileInfo }) => {
+    .beforeDelete(() => {
       return true;
     })
     .input(

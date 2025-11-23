@@ -197,22 +197,10 @@ export async function POST(req: Request) {
     session.endSession();
 
     return NextResponse.json({ msg: "Đăng ký thành công." }, { status: 200 });
-  } catch (e: any) {
-    if (e.name === "MongoServerError" && e.code === 11000) {
-      if (session && session.inTransaction()) {
-        await session.abortTransaction();
-      }
-      session?.endSession();
-      return NextResponse.json(
-        { msg: "Bạn đã đăng ký trước đó." },
-        { status: 200 }
-      );
-    }
-
+  } catch (e) {
     if (session && session.inTransaction()) {
       await session.abortTransaction();
     }
-    session?.endSession();
     return NextResponse.json({ success: false, error: e }, { status: 500 });
   } finally {
     if (session) session.endSession();

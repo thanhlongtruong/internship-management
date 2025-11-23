@@ -6,7 +6,7 @@ import registration_result from "@/models/registration-result";
 import { OpenRegistrationSchema } from "@/utils/open-registration-schema";
 
 import { isEqual } from "lodash";
-import { generateCohorts, generateYears } from "@/utils/generate-years-cohorts";
+
 import { Types } from "mongoose";
 
 export async function POST(req: Request) {
@@ -60,7 +60,7 @@ export async function POST(req: Request) {
           cohort: data.data.cohort,
         },
         {
-          "major.name": { $in: data.data.major.map((m: any) => m.name) },
+          "major.name": { $in: data.data.major.map((m) => m.name) },
         },
       ],
     });

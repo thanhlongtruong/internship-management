@@ -32,10 +32,12 @@ export default async function ProtectedRoleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ role: Role }>;
+  params: Promise<{ role: string }>;
 }) {
   const { role } = await params;
-  const { sidebarConfig } = await getLayoutData(role);
+  const roleTyped = role as Role;
+
+  const { sidebarConfig } = await getLayoutData(roleTyped);
 
   return (
     <>

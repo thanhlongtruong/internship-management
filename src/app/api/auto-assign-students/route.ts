@@ -1,17 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { connectDB } from "@/lib/connectDB";
 import { verifyAuth } from "@/utils/verify-auth";
 import { NextResponse } from "next/server";
 import mongoose, { PipelineStage, Schema } from "mongoose";
-import advisor_group, { IAdvisorGroup } from "@/models/advisor_group";
+import advisor_group from "@/models/advisor_group";
 
 import registration_result from "@/models/registration-result";
 import training_advisor from "@/models/training_advisor";
-
-interface IAdvisorGroupWithTrainingAdvisor extends IAdvisorGroup {
-  advisorId: Schema.Types.ObjectId;
-  lecturerId: Schema.Types.ObjectId;
-  maxStudents: number;
-}
 
 export async function POST(req: Request) {
   let session: mongoose.ClientSession | null = null;

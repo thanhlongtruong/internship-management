@@ -23,7 +23,7 @@ export async function GET() {
       );
     }
 
-    const update = await user.findByIdAndUpdate(FindUser._id);
+    await user.findByIdAndUpdate(FindUser._id);
 
     return NextResponse.json(
       { msg: "Gửi yêu cầu tham gia thành công." },

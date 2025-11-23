@@ -248,7 +248,7 @@ function SheetSubmittedStudents({
         link.click();
         link.remove();
         window.URL.revokeObjectURL(url);
-      } catch (e) {
+      } catch {
         toast.error("Không thể tải xuống file. Vui lòng thử lại.");
       }
     },

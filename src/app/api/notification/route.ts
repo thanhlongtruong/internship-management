@@ -13,13 +13,9 @@ import notification, {
 
 import training_advisor, { ITrainingAdvisor } from "@/models/training_advisor";
 
-import registration_result, {
-  IRegistrationResult,
-} from "@/models/registration-result";
+import registration_result from "@/models/registration-result";
 
-import open_course from "@/models/open-course";
-
-import advisor_group, { IAdvisorGroup } from "@/models/advisor_group";
+import advisor_group from "@/models/advisor_group";
 
 import pushSubscription from "@/models/push-subscription";
 
@@ -513,9 +509,9 @@ async function handleUndoSendRequestToAdvisor(
       session,
     });
 
-    let message =
+    const message =
       "Bạn đã hủy yêu cầu gửi đến Giảng viên hướng dẫn. Bạn có thể gửi yêu cầu đến giảng viên hướng dẫn mới.";
-    let successMessage = "Hủy yêu cầu";
+    const successMessage = "Hủy yêu cầu";
 
     const notificationData = {
       type_notify: NotificationType.UNDO_SRT_ADVISOR,

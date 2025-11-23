@@ -34,7 +34,6 @@ import {
   ListTodo,
   MoreHorizontal,
   RefreshCw,
-  UserCog,
 } from "lucide-react";
 import { TypesUser } from "@/store/use-user-store";
 import { Spinner } from "@/components/ui/spinner";

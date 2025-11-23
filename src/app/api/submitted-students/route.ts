@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import mongoose, { Types } from "mongoose";
 
 import { connectDB } from "@/lib/connectDB";

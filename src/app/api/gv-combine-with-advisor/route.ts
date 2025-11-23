@@ -10,12 +10,7 @@ import { verifyAuth } from "@/utils/verify-auth";
 
 import training_advisor, { ITrainingAdvisor } from "@/models/training_advisor";
 
-import advisor_group, { IAdvisorGroup } from "@/models/advisor_group";
-
-type ColumnFilter = {
-  id: string;
-  value: string;
-};
+import advisor_group from "@/models/advisor_group";
 
 export async function GET(req: Request) {
   try {
@@ -73,22 +68,6 @@ export async function GET(req: Request) {
       pdt: idPdt,
       faculty: faculty,
     };
-
-    const [totalLecturers, lecturers] = await Promise.all([
-      user.countDocuments(queryLecturers),
-
-      user
-        .find(queryLecturers)
-        .select("role email name gender birthday school faculty pdt _id")
-        .populate({
-          path: "pdt",
-          select: "email role code -_id",
-        })
-        .sort({ name: 1 })
-        .skip(skip)
-        .limit(page_size)
-        .lean<IUser[]>(),
-    ]);
 
     if (type === "assigned") {
       const queryTrainingAdvisors: FilterQuery<ITrainingAdvisor> = {

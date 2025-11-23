@@ -22,7 +22,7 @@ export async function middleware(req: NextRequest) {
       const { payload } = await jwtVerify(token!, JWT_SECRET);
       const user = payload as TokenPayload;
       return NextResponse.redirect(new URL(`/${user.role}`, req.url));
-    } catch (e) {
+    } catch {
       return NextResponse.next();
     }
   }
@@ -35,7 +35,7 @@ export async function middleware(req: NextRequest) {
       if (!pathname.startsWith(`/${user.role}`)) {
         return NextResponse.redirect(new URL(`/${user.role}`, req.url));
       }
-    } catch (err) {
+    } catch {
       const response = NextResponse.redirect(new URL("/login", req.url));
       response.cookies.delete("act");
       return response;

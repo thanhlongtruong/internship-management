@@ -113,9 +113,6 @@ export default function DialogSendNotification({
     });
   };
 
-  const canSubmit = form.formState.isValid;
-
-
   const handleOpenChange = async (open: boolean) => {
     if (mutationSendNotification.isPending) return;
     if (!open) {

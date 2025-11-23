@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { connectDB } from "./connectDB";
 
 import { FilterQuery } from "mongoose";

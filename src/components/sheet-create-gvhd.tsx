@@ -100,8 +100,6 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 
-interface IAdvisorUnassigned extends TypesUser {}
-
 interface IAdvisorAssigned {
   faculty: string;
   maxStudents: number;
@@ -204,7 +202,7 @@ function SheetCreateGVHD(dataParams: {
         "unassigned"
       );
       return {
-        unassigned: res.data.unassigned as IAdvisorUnassigned[],
+        unassigned: res.data.unassigned as TypesUser[],
         totalUnassigned: res.data.totalUnassigned,
         totalPageUnassigned: res.data.totalPageUnassigned,
         page: res.data.page,
@@ -234,7 +232,7 @@ function SheetCreateGVHD(dataParams: {
 
   // ====================== TABLE CONFIG ======================
 
-  const columnsUnassigned: ColumnDef<IAdvisorUnassigned>[] = [
+  const columnsUnassigned: ColumnDef<TypesUser>[] = [
     {
       id: "select",
       header: ({ table }) => (

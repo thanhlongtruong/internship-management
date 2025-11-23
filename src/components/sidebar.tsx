@@ -4,7 +4,6 @@ import { Logout } from "@/api-client/User";
 import { TypeSidebarGroup } from "@/lib/types";
 import { useUserStore } from "@/store/use-user-store";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 import {
@@ -24,13 +23,13 @@ import {
 import ScrambledText from "./scrambled-text";
 import { Ring } from "ldrs/react";
 import "ldrs/react/Ring.css";
+import Link from "next/link";
 export function App_Sidebar({
   groups,
   ...props
 }: React.ComponentProps<typeof Sidebar> & { groups: TypeSidebarGroup[] }) {
   const queryClient = useQueryClient();
 
-  const router = useRouter();
   const { logout } = useUserStore();
 
   const mutationLogout = useMutation({
@@ -63,11 +62,11 @@ export function App_Sidebar({
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a
+              <Link
                 href="/"
                 className="uppercase text-xl md:text-2xl font-extrabold">
                 <ScrambledText>FRUIT.</ScrambledText>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

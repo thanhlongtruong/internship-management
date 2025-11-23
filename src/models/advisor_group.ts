@@ -15,8 +15,8 @@ export interface IAdvisorGroup extends Document {
     description_topic: string;
     files: {
       _id?: Schema.Types.ObjectId;
-      url: String;
-      name: String;
+      url: string;
+      name: string;
     }[];
     title: {
       _id?: Schema.Types.ObjectId;
@@ -24,23 +24,23 @@ export interface IAdvisorGroup extends Document {
       content: string;
       files: {
         _id?: Schema.Types.ObjectId;
-        url: String;
-        name: String;
+        url: string;
+        name: string;
       }[];
       publishedFile: {
         _id?: Schema.Types.ObjectId;
-        url: String;
-        name: String;
+        url: string;
+        name: string;
       } | null;
       submissions: {
         _id?: Schema.Types.ObjectId;
         studentId: Schema.Types.ObjectId;
         file: {
           _id?: Schema.Types.ObjectId;
-          url: String;
-          name: String;
+          url: string;
+          name: string;
         }[];
-        score: Number;
+        score: number;
         submittedAt: Date;
       }[];
       deadline: Date;

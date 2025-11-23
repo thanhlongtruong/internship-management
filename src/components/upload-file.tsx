@@ -62,7 +62,7 @@ function UploadFile({ idAdvisorGroup, value = [], onChange }: UploadFileProps) {
       onChange?.(newValue);
 
       return { success: true };
-    } catch (e) {
+    } catch {
       return { success: false };
     }
   };

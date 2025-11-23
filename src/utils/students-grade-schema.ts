@@ -11,7 +11,7 @@ export const StudentsGradeSchema = z
       .nonempty({ message: "Vui lòng nhập điểm cho tất cả sinh viên." }),
   })
   .superRefine((val, ctx) => {
-    val.grades.forEach(({ grade, email }, index) => {
+    val.grades.forEach(({ grade }, index) => {
       const gradeString = grade;
 
       if (gradeString.startsWith(".")) {

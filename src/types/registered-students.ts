@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export enum MajorStatus {
   NOT_STARTED = "Chưa đến thời gian đăng ký",
   OPEN = "Đăng ký đang mở",

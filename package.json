@@ -56,6 +56,7 @@
     "react-hook-form": "^7.64.0",
     "recharts": "^2.15.4",
     "sonner": "^2.0.7",
+    "styled-jsx": "^5.1.7",
     "tailwind-merge": "^3.3.1",
     "web-push": "^3.6.7",
     "xlsx": "^0.18.5",

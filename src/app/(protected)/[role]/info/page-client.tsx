@@ -17,6 +17,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { TypesUser } from "@/store/use-user-store";
 
 interface PageInfoAccountClientProps {
   user: IUser;
@@ -60,11 +61,11 @@ function PageInfoAccountClient({ user }: PageInfoAccountClientProps) {
               className="cursor-pointer"
               onClick={() => {
                 if (typeof user.pdt === "object") {
-                  const pdtUser = user.pdt as unknown as IUser;
+                  const pdtUser = user.pdt as unknown as TypesUser;
                   setStore({
                     ...pdtUser,
                     exp: 0,
-                  } as any);
+                  } as TypesUser);
                 }
               }}>
               Xem chi tiết
